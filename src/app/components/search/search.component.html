@@ -1,0 +1,7 @@
+<div class="input-group" style="justify-content: center;">
+    <input class="form-control col-sm-6" type="text" placeholder="Search Video" aria-label="Search" #video 
+(keyup.enter)="onClick(video.value)"> 
+    <span class="input-group-btn">
+        <button type="button" (click)="onClick(video.value)" class="btn btn-primary" style="margin-left: 10px">Search</button>
+    </span>
+</div>

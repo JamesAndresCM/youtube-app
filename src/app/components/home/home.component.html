@@ -1,0 +1,48 @@
+<div class="mt-5 container">
+  <app-search (clicked)="onClicked($event)"></app-search>
+  <br><br>
+  <div class="card-columns" *ngIf="videos.length > 0">
+  <div class="card animated fadeIn fast" *ngFor="let video of videos">
+    <img class="card-img-top" style="cursor: pointer;" (click)="playVideo(video)" [src]="video.thumbnails.high.url" [alt]="video.title">
+    <div class="card-body">
+      <h5 class="card-title">{{ video.title }}</h5>
+      <h6 class="channel-class">Channel {{ video.channelTitle }}</h6>
+      <h6 class="published-class">Published {{ video.publishedAt | timeAgo }}</h6>
+    </div>
+    <div class="card-footer">
+      <button (click)="playVideo(video)" type="button" class="btn btn-sm btn-danger btn-block">Play Video</button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()">
+ </div>
+
+<div class="modal fade" 
+    id="myModal" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="exampleModalCenterTitle" 
+    aria-hidden="true"
+    data-backdrop="static"
+    data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="max-width: 1000px">
+    <div class="modal-content" *ngIf="chooseVideo">
+      <div class="modal-header">
+        <h5 class="modal-title" style="margin: 0 auto;" id="exampleModalCenterTitle">{{ chooseVideo.title }}</h5>
+      </div>
+      <div class="embed-responsive embed-responsive-16by9 modal-body">
+        <div>
+        <iframe class="embed-responsive-item" style="padding: 10px" [src]="chooseVideo.videoId | securedom" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-block" (click)="closeModal()">Close Video</button>
+      </div>
+    </div>
+  </div>
+</div>

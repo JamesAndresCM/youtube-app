@@ -1,0 +1,15 @@
+.channel-class{
+  border-radius: 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #28a745;
+  text-align: center;
+}
+
+.published-class{
+  background-color: #007bff;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
