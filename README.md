@@ -6,18 +6,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm install`
 
 ## Configure Spotify-Access-Token
-Add your youtube-key `apiKey` [in service file](). [Get ApiKey](https://developers.google.com/youtube/v3/getting-started)
+Add your youtube-key `apiKey` [in service file](https://github.com/JamesAndresCM/youtube-app/blob/master/src/app/services/youtube.service.ts#L13). [Get ApiKey](https://developers.google.com/youtube/v3/getting-started)
 
 ## Configure Region Code
-Add Your region Code `regionCode` [in service file](). Default `CL`
+Add Your region Code `regionCode` [in service file](https://github.com/JamesAndresCM/youtube-app/blob/master/src/app/services/youtube.service.ts#L58). Default `CL`
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
