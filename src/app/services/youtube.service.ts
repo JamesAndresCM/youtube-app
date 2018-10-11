@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { GLOBAL } from './global';
-import 'rxjs/RX';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class YoutubeService {
     }
 
     console.log(this.nextPageToken);
-    return this.http.get(`${url}`, {search: params}).map(
+    return this.http.get(`${url}`, {search: params}).pipe(map(
           res => { 
             
              this.nextPageToken = res.json().nextPageToken;
@@ -46,7 +46,7 @@ export class YoutubeService {
 
              return videos;
           }
-    );
+    ));
   }
 
   mostPopular(){
@@ -59,7 +59,7 @@ export class YoutubeService {
     params.set('key', this.apiKey);
     params.set('chart','mostPopular');
 
-    return this.http.get(`${url}`,{ params }).map(
+    return this.http.get(`${url}`,{ params }).pipe(map(
         res => {
             let videos:any[] = [];
             for(let video of res.json().items){
@@ -72,7 +72,7 @@ export class YoutubeService {
 
             return videos;
         }
-      )
+      ));
   }
 
 }
